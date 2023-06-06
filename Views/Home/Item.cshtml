@@ -1,0 +1,40 @@
+﻿@model Online_Shop.Models.PriceModel
+@{
+    ViewData["Title"] = Model.price;
+}
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <link href="css\style.css" rel="stylesheet">
+    </head>
+
+    <body>
+    <main class="container item-div-border">
+        <!-- Left Column / Headphones Image -->
+        <div class="left-column">
+            <img src="~/Images/zoropic.png" alt="Zoro T-Shirt">
+        </div>
+
+
+        <!-- Right Column -->
+        <div class="right-column">
+
+            <!-- Product Description -->
+            <div class="product-description">
+                <span>T-Shirt</span>
+                <h1 style="color: white;">Zoro T-Shirt</h1>
+                <p style="color: white;">A T-Shirt of the best waifu there can be, Zoro</p>
+            </div>
+
+            <!-- Product Configuration -->
+            <div class="product-configuration">
+            <!-- Product Pricing -->
+            <div class="product-price">
+                <span style="color:white">@Model.price$</span>
+                <a href="#" class="cart-btn">Add to cart</a>
+            </div>
+        </div>
+    </main>
+    </body>
+</html>
