@@ -1,15 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Online_Shop.Models;
+using Online_Shop.Services;
 
 namespace Online_Shop.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        ClothesService _clothesService;
+        public HomeController(ILogger<HomeController> logger, ClothesService clothesService)
         {
             _logger = logger;
+            _clothesService = clothesService;
         }
 
         public IActionResult Index()
@@ -17,11 +19,17 @@ namespace Online_Shop.Controllers
             return View();
         }
 
-        public IActionResult Item()
+        public async Task <IActionResult> Item()
         {
-            PriceModel model = new PriceModel();
-            model.price = 50;
-            return View(model);
+            Shirt shirt = new Shirt
+            {
+                ShirtId = Guid.NewGuid(),
+                Name = "Zoro",
+                Path = "~/Images/zoropic.png",
+                Color = "red"
+            };
+            await _clothesService.AddShirt(shirt);
+            return View();
         }
     }
 }

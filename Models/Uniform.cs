@@ -6,10 +6,9 @@ namespace Online_Shop.Models
     {
         [Key]
         public Guid Id { get; set; }
-
         public Guid ShirtId { get; set; }
         public Guid PantsId { get; set; }
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public Shirt Shirt { get; set; }
         public Pants Pants { get; set; }
     }

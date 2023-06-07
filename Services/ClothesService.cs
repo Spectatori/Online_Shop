@@ -17,5 +17,10 @@ namespace Online_Shop.Services
             await db.Shirts.AddAsync(shirt);
             return await db.SaveChangesAsync();
         }
+        public async Task<int> AddPants(Pants pants)
+        {
+            await db.Pants.AddAsync(pants);
+            return await db.SaveChangesAsync();
+        }
     }
 }

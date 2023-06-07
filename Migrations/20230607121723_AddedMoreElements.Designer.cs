@@ -11,8 +11,8 @@ using Online_Shop.Data;
 namespace Online_Shop.Migrations
 {
     [DbContext(typeof(ClothesDbContext))]
-    [Migration("20230524170337_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230607121723_AddedMoreElements")]
+    partial class AddedMoreElements
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,6 +32,14 @@ namespace Online_Shop.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Path")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.HasKey("PantsId");
 
                     b.ToTable("Pants");
@@ -44,6 +52,14 @@ namespace Online_Shop.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<string>("Color")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Path")
                         .IsRequired()
                         .HasColumnType("longtext");
 
