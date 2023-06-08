@@ -241,13 +241,13 @@ html, body {
 }
 
 .item-div-border {
-    background-image: linear-gradient(to bottom right, seagreen, yellow);
+    background-image: linear-gradient(to bottom right, #f8fff1, #74c4a4);
     padding: 20px;
     border-radius: 20px;
     text-align: center;
     font-size: 24px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative; /* Add position: relative to establish a positioning context */
+    margin-bottom: 30px; /* Add margin-bottom to create spacing between items */
 }
 
 .container {
@@ -446,9 +446,17 @@ h5 {
 }
 
 .background {
-    background-image: url('../Images/fashion.jpg');
+    background-image: url('../Images/fashion.webp');
     background-attachment: fixed;
     background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+}
+.construction-background {
+    background-image: url('../Images/construction.webp');
+    background-attachment: fixed;
+    background-size: contain;
     background-position: center;
     height: 100vh;
     margin: 0;

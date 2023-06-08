@@ -19,7 +19,7 @@ namespace Online_Shop.Controllers
             return View();
         }
 
-        public async Task <IActionResult> Item()
+        /*public async Task <IActionResult> Item1()
         {
             Shirt shirt = new Shirt
             {
@@ -29,6 +29,30 @@ namespace Online_Shop.Controllers
                 Color = "red"
             };
             await _clothesService.AddShirt(shirt);
+            return View();
+        }*/
+        public IActionResult Item1()
+        {
+            return View();
+        }
+        public IActionResult Item2()
+        {
+            return View();
+        }
+        public IActionResult Item3()
+        {
+            return View();
+        }
+        public IActionResult Men()
+        {
+            return View();
+        }
+        public IActionResult Women()
+        {
+            return View();
+        }
+        public IActionResult Kids()
+        {
             return View();
         }
     }
