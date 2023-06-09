@@ -55,5 +55,9 @@ namespace Online_Shop.Controllers
         {
             return View();
         }
+        public IActionResult AddProduct()
+        {
+            return View();
+        }
     }
 }

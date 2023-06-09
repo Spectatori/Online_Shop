@@ -1,0 +1,75 @@
+﻿@model Online_Shop.Models.Uniform
+@{
+    ViewData["Title"] = "Add-Product";
+}
+<head>
+    <meta charset="utf-8">
+    <link href="css\style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body class="background">
+    <main class="container item-div-border">
+        <!-- Left Column / Headphones Image -->
+        <div class="left-column">
+            @using (Html.BeginForm("AddProduct", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div>
+                    <label for="fileInput" style="pointer-events:none">Upload Image:</label>
+                    <input type="file" name="fileInput" id="fileInput" accept="image/*">
+                </div>
+            }
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-column">
+
+            <!-- Product Description -->
+            <div class="product-description">
+                <div>
+                    @Html.DropDownListFor(model => model.SelectProductType, new SelectList(new[]
+                {
+                    new SelectListItem { Text = "Shirt", Value = "Shirt" },
+                    new SelectListItem { Text = "Pants", Value = "Pants" }
+                }, "Value", "Text"), "Select a product type", new { id = "productTypeDropdown" })
+                </div>
+
+                <div id="shirtFields" style="display: none;">
+                    <div>
+                        @Html.LabelFor(model => model.Shirt.Name)
+                        @Html.TextBoxFor(model => model.Shirt.Name)
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.Shirt.Color)
+                        @Html.TextBoxFor(model => model.Shirt.Color)
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.Shirt.Description)
+                        @Html.TextAreaFor(model => model.Shirt.Description)
+                    </div>
+                </div>
+
+                <div id="pantsFields" style="display: none;">
+                    <div>
+                        @Html.LabelFor(model => model.Pants.Name)
+                        @Html.TextBoxFor(model => model.Pants.Name)
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.Pants.Color)
+                        @Html.TextBoxFor(model => model.Pants.Color)
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.Pants.Description)
+                        @Html.TextAreaFor(model => model.Pants.Description)
+                    </div>
+                </div>
+
+                <div>
+                    @Html.LabelFor(model => model.Pants.Price)
+                    @Html.TextBoxFor(model => model.Pants.Price)
+                </div>
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    </main>
+</body>

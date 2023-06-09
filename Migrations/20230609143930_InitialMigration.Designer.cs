@@ -11,8 +11,8 @@ using Online_Shop.Data;
 namespace Online_Shop.Migrations
 {
     [DbContext(typeof(ClothesDbContext))]
-    [Migration("20230607115554_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230609143930_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,7 +29,15 @@ namespace Online_Shop.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<string>("Color")
-                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Path")
                         .HasColumnType("longtext");
 
                     b.HasKey("PantsId");
@@ -44,7 +52,15 @@ namespace Online_Shop.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<string>("Color")
-                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Path")
                         .HasColumnType("longtext");
 
                     b.HasKey("ShirtId");
@@ -54,13 +70,8 @@ namespace Online_Shop.Migrations
 
             modelBuilder.Entity("Online_Shop.Models.Uniform", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<string>("SelectProductType")
+                        .HasColumnType("varchar(255)");
 
                     b.Property<Guid>("PantsId")
                         .HasColumnType("char(36)");
@@ -68,7 +79,7 @@ namespace Online_Shop.Migrations
                     b.Property<Guid>("ShirtId")
                         .HasColumnType("char(36)");
 
-                    b.HasKey("Id");
+                    b.HasKey("SelectProductType");
 
                     b.HasIndex("PantsId");
 
