@@ -47,6 +47,10 @@
                         @Html.LabelFor(model => model.Shirt.Description)
                         @Html.TextAreaFor(model => model.Shirt.Description)
                     </div>
+                    <div>
+                        @Html.LabelFor(model => model.Shirt.Price)
+                        @Html.TextAreaFor(model => model.Shirt.Price)
+                    </div>
                 </div>
 
                 <div id="pantsFields" style="display: none;">
@@ -62,11 +66,10 @@
                         @Html.LabelFor(model => model.Pants.Description)
                         @Html.TextAreaFor(model => model.Pants.Description)
                     </div>
-                </div>
-
-                <div>
-                    @Html.LabelFor(model => model.Pants.Price)
-                    @Html.TextBoxFor(model => model.Pants.Price)
+                    <div>
+                        @Html.LabelFor(model => model.Pants.Price)
+                        @Html.TextBoxFor(model => model.Pants.Price)
+                    </div>
                 </div>
                 <button type="submit">Submit</button>
             </div>

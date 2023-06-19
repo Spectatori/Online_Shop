@@ -1,4 +1,5 @@
-﻿using Online_Shop.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Online_Shop.Data;
 using Online_Shop.Models;
 
 namespace Online_Shop.Services
@@ -21,6 +22,20 @@ namespace Online_Shop.Services
         {
             await db.Pants.AddAsync(pants);
             return await db.SaveChangesAsync();
+        }
+        public async Task<List<Uniform>> RetrieveByGuid(Guid guid)
+        {
+            var clothing = await db.Uniforms.Where(u=>u.ShirtId == guid).ToListAsync();
+            if(clothing == null)
+            {
+                clothing = await db.Uniforms.Where(u => u.PantsId == guid).ToListAsync();
+            }
+            return clothing;
+        }
+        public async Task<List<Uniform>> RetrieveAllClothes()
+        {
+            var clothes = await db.Uniforms.ToListAsync();
+            return clothes;
         }
     }
 }
